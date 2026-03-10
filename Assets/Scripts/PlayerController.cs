@@ -10,6 +10,9 @@ public class PlayerController : MonoBehaviour
     Vector2 moveDirection;
     Vector2 mousePosition;
 
+    public SurvivalTimer survivalTimer;
+
+
     private void Start()
     {
         weapon = weaponObject as IWeapon;
@@ -37,5 +40,13 @@ public class PlayerController : MonoBehaviour
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = aimAngle;
+    }
+
+
+    public void TakeDamage(float damage)
+    {
+        survivalTimer.StopTimer();
+        // Add death effects here later if needed
+        Destroy(gameObject);
     }
 }

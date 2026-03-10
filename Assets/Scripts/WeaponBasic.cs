@@ -22,8 +22,8 @@ public class WeaponBasic : MonoBehaviour, IWeapon
         {
             float angle = GetSpreadAngle(i);
             Quaternion spreadRotation = Quaternion.Euler(0, 0, angle) * firePoint.rotation;
-
-            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, spreadRotation);
+            RewindAbstract bullet = Instantiate(bulletPrefab, firePoint.position, spreadRotation).GetComponent<RewindAbstract>();
+            RewindManager.Instance.AddObjectForTracking(bullet, RewindManager.OutOfBoundsBehaviour.DisableDestroy);
             bullet.GetComponent<Rigidbody2D>().AddForce(spreadRotation * Vector2.up * bulletForce, ForceMode2D.Impulse);
         }
 

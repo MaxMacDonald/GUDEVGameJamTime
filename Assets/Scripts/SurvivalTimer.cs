@@ -5,11 +5,12 @@ public class SurvivalTimer : MonoBehaviour
 {
     public TextMeshProUGUI timerText;
     public GameOverUI gameOverUI;
-    private float elapsedTime;
+    public float elapsedTime;
     private bool running = true;
 
     void Update()
     {
+        if (RewindManager.Instance.IsBeingRewinded) return;
         if (!running) return;
 
 

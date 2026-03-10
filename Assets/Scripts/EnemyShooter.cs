@@ -48,7 +48,8 @@ public class EnemyShooter : MonoBehaviour
 
     void Shoot()
     {
-        GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        RewindAbstract bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<RewindAbstract>();
+        RewindManager.Instance.AddObjectForTracking(bullet, RewindManager.OutOfBoundsBehaviour.DisableDestroy);
         bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
 
@@ -72,6 +73,6 @@ public class EnemyShooter : MonoBehaviour
 
     void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

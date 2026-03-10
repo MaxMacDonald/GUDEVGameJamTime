@@ -12,24 +12,35 @@ public class EnemySpawner : MonoBehaviour
     }
 
     public List<SpawnEvent> spawnEvents;
-
     private Camera mainCamera;
-    private SurvivalTimer survivalTimer;
-    private int nextEventIndex = 0;
-    private float elapsedTime = 0f;
+    public int nextEventIndex = 0; 
+    public float elapsedTime = 0f;
     private bool running = true;
+    public float spawnMargin = 1f;
 
-    public float spawnMargin = 1f; // How far outside the camera to spawn
+    // Pre-generated positions for each spawn event
+    private List<Vector2[]> cachedSpawnPositions = new List<Vector2[]>();
 
     void Start()
     {
         mainCamera = Camera.main;
-        // Sort events by time so you can add them in any order in the Inspector
         spawnEvents.Sort((a, b) => a.time.CompareTo(b.time));
+
+        // Pre-generate all spawn positions upfront
+        foreach (SpawnEvent spawnEvent in spawnEvents)
+        {
+            Vector2[] positions = new Vector2[spawnEvent.count];
+            for (int i = 0; i < spawnEvent.count; i++)
+            {
+                positions[i] = GenerateSpawnPosition();
+            }
+            cachedSpawnPositions.Add(positions);
+        }
     }
 
     void Update()
     {
+        if (RewindManager.Instance.IsBeingRewinded) return;
         if (!running) return;
 
         elapsedTime += Time.deltaTime;
@@ -38,27 +49,33 @@ public class EnemySpawner : MonoBehaviour
                elapsedTime >= spawnEvents[nextEventIndex].time)
         {
             SpawnEvent spawnEvent = spawnEvents[nextEventIndex];
+            Vector2[] positions = cachedSpawnPositions[nextEventIndex];
+
             for (int i = 0; i < spawnEvent.count; i++)
             {
-                Instantiate(spawnEvent.enemyPrefab, GetSpawnPosition(), Quaternion.identity);
+                RewindAbstract someObjectToSpawn = Instantiate(
+                    spawnEvent.enemyPrefab,
+                    positions[i],
+                    Quaternion.identity
+                ).GetComponent<RewindAbstract>();
+                RewindManager.Instance.AddObjectForTracking(someObjectToSpawn, RewindManager.OutOfBoundsBehaviour.DisableDestroy);
             }
             nextEventIndex++;
         }
     }
 
-    Vector2 GetSpawnPosition()
+    Vector2 GenerateSpawnPosition()
     {
         float camHeight = mainCamera.orthographicSize + spawnMargin;
         float camWidth = mainCamera.orthographicSize * mainCamera.aspect + spawnMargin;
 
-        // Pick a random side: 0=top, 1=bottom, 2=left, 3=right
         int side = Random.Range(0, 4);
         return side switch
         {
-            0 => new Vector2(Random.Range(-camWidth, camWidth), camHeight),   // top
-            1 => new Vector2(Random.Range(-camWidth, camWidth), -camHeight),  // bottom
-            2 => new Vector2(-camWidth, Random.Range(-camHeight, camHeight)), // left
-            _ => new Vector2(camWidth, Random.Range(-camHeight, camHeight)),  // right
+            0 => new Vector2(Random.Range(-camWidth, camWidth), camHeight),
+            1 => new Vector2(Random.Range(-camWidth, camWidth), -camHeight),
+            2 => new Vector2(-camWidth, Random.Range(-camHeight, camHeight)),
+            _ => new Vector2(camWidth, Random.Range(-camHeight, camHeight)),
         };
     }
 

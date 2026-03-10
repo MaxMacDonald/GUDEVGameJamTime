@@ -1,4 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
+using UnityEngine.Events;
 
 public class WeaponBasic : MonoBehaviour, IWeapon
 {
@@ -13,6 +17,8 @@ public class WeaponBasic : MonoBehaviour, IWeapon
     public float spreadAngle = 15f;
 
     private float fireCooldown;
+    public MMF_Player shootFeedback;
+    
 
     public void Fire()
     {
@@ -26,7 +32,7 @@ public class WeaponBasic : MonoBehaviour, IWeapon
             RewindManager.Instance.AddObjectForTracking(bullet, RewindManager.OutOfBoundsBehaviour.DisableDestroy);
             bullet.GetComponent<Rigidbody2D>().AddForce(spreadRotation * Vector2.up * bulletForce, ForceMode2D.Impulse);
         }
-
+        shootFeedback?.PlayFeedbacks();
         fireCooldown = fireRate;
     }
 

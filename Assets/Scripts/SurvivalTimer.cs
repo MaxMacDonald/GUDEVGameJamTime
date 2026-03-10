@@ -12,6 +12,7 @@ public class SurvivalTimer : MonoBehaviour
     {
         if (!running) return;
 
+
         elapsedTime += Time.deltaTime;
 
         int minutes = Mathf.FloorToInt(elapsedTime / 60);

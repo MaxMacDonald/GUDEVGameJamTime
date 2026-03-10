@@ -211,7 +211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88c4646ef902f004e91cc2fa6bb0327a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EnemyShooter
-  health: 100
+  health: 30
   moveSpeed: 2
   fireRate: 1
   bulletPrefab: {fileID: 3898697755726546756, guid: 404fb7cf381940a41a3b6f4772bbfeaf, type: 3}

@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     Vector2 mousePosition;
 
     public SurvivalTimer survivalTimer;
+    public EnemySpawner enemySpawner;
 
 
     private void Start()
@@ -28,7 +29,8 @@ public class PlayerController : MonoBehaviour
 
         mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        // Continuous fire while held
+        if (Mouse.current.leftButton.isPressed)
         {
             weapon.Fire();
         }
@@ -46,6 +48,7 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         survivalTimer.StopTimer();
+        enemySpawner.StopSpawning();
         // Add death effects here later if needed
         Destroy(gameObject);
     }

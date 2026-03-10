@@ -14,6 +14,7 @@ public class EnemyShooter : MonoBehaviour
 
     private Transform player;
     private float fireCooldown;
+    private bool insideArena = false;
 
     void Start()
     {
@@ -25,6 +26,8 @@ public class EnemyShooter : MonoBehaviour
         if (player == null) return;
 
         MoveTowardsPlayer();
+
+        if (!insideArena) return;
 
         fireCooldown -= Time.deltaTime;
         if (fireCooldown <= 0f)
@@ -39,7 +42,6 @@ public class EnemyShooter : MonoBehaviour
         Vector2 direction = (player.position - transform.position).normalized;
         transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
 
-        // Rotate to face player
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
@@ -50,13 +52,22 @@ public class EnemyShooter : MonoBehaviour
         bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
     }
 
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ArenaBorder"))
+            insideArena = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("ArenaBorder"))
+            insideArena = false;
+    }
+
     public void TakeDamage(float damage)
     {
         health -= damage;
-        if (health <= 0f)
-        {
-            Die();
-        }
+        if (health <= 0f) Die();
     }
 
     void Die()

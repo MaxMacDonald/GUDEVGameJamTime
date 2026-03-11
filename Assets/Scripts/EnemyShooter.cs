@@ -1,4 +1,5 @@
 using UnityEngine;
+using MoreMountains.Feedbacks;
 
 public class EnemyShooter : MonoBehaviour, IEnemy
 {
@@ -23,6 +24,8 @@ public class EnemyShooter : MonoBehaviour, IEnemy
     public bool IsDead { get => isDead; set => isDead = value; }
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public bool InsideArena { get => insideArena; set => insideArena = value; }
+
+
 
     void Start()
     {
@@ -86,6 +89,8 @@ public class EnemyShooter : MonoBehaviour, IEnemy
 
     public void Die()
     {
+        VFXManager.Instance.PlayEnemyDeathVFX(transform.position);
         gameObject.SetActive(false);
+ 
     }
 }

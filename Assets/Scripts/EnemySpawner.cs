@@ -9,16 +9,16 @@ public class EnemySpawner : MonoBehaviour
         public float time;
         public GameObject enemyPrefab;
         public int count;
+        public float swarmRadius; // 0 = spread out, > 0 = spawn in a cluster
     }
 
     public List<SpawnEvent> spawnEvents;
     private Camera mainCamera;
-    public int nextEventIndex = 0; 
+    public int nextEventIndex = 0;
     public float elapsedTime = 0f;
     private bool running = true;
     public float spawnMargin = 1f;
 
-    // Pre-generated positions for each spawn event
     private List<Vector2[]> cachedSpawnPositions = new List<Vector2[]>();
 
     void Start()
@@ -26,14 +26,28 @@ public class EnemySpawner : MonoBehaviour
         mainCamera = Camera.main;
         spawnEvents.Sort((a, b) => a.time.CompareTo(b.time));
 
-        // Pre-generate all spawn positions upfront
         foreach (SpawnEvent spawnEvent in spawnEvents)
         {
             Vector2[] positions = new Vector2[spawnEvent.count];
-            for (int i = 0; i < spawnEvent.count; i++)
+
+            if (spawnEvent.swarmRadius > 0f)
             {
-                positions[i] = GenerateSpawnPosition();
+                // All enemies spawn near a single point
+                Vector2 swarmCenter = GenerateSpawnPosition();
+                for (int i = 0; i < spawnEvent.count; i++)
+                {
+                    positions[i] = swarmCenter + Random.insideUnitCircle * spawnEvent.swarmRadius;
+                }
             }
+            else
+            {
+                // Each enemy spawns at its own random position
+                for (int i = 0; i < spawnEvent.count; i++)
+                {
+                    positions[i] = GenerateSpawnPosition();
+                }
+            }
+
             cachedSpawnPositions.Add(positions);
         }
     }

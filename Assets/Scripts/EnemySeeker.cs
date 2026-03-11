@@ -1,48 +1,42 @@
 using UnityEngine;
 
-public class EnemyShooter : MonoBehaviour, IEnemy
+public class EnemySeeker : MonoBehaviour, IEnemy
 {
     [Header("Stats")]
-    public float health = 30f;
-    public float moveSpeed = 2f;
-    public float fireRate = 1f;
-
-    [Header("Bullet")]
-    public GameObject bulletPrefab;
-    public Transform firePoint;
-    public float bulletForce = 10f;
-
-    private Transform player;
-    private float fireCooldown;
-    private bool insideArena = false;
+    public float health = 20f;
+    public float moveSpeed = 3f;
     public bool isDead = false;
+    public bool insideArena = false;
 
-
-    // IEnemy / IDamageable properties
     public float Health { get => health; set => health = value; }
     public bool IsDead { get => isDead; set => isDead = value; }
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public bool InsideArena { get => insideArena; set => insideArena = value; }
 
+    private Transform player;
+    private Rigidbody2D rb;
+
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
+        rb = GetComponent<Rigidbody2D>();
     }
 
     void Update()
     {
+
         if (player == null) return;
 
         MoveTowardsPlayer();
 
-        if (!insideArena) return;
+    }
 
-        fireCooldown -= Time.deltaTime;
-        if (fireCooldown <= 0f)
-        {
-            Shoot();
-            fireCooldown = 1f / fireRate;
-        }
+    void FixedUpdate()
+    {
+   
+        if (player == null) return;
+
+        
     }
 
     void MoveTowardsPlayer()
@@ -54,19 +48,23 @@ public class EnemyShooter : MonoBehaviour, IEnemy
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
-    void Shoot()
-    {
-        RewindAbstract bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<RewindAbstract>();
-        RewindManager.Instance.AddObjectForTracking(bullet, RewindManager.OutOfBoundsBehaviour.DisableDestroy);
-        bullet.GetComponent<Rigidbody2D>().AddForce(firePoint.up * bulletForce, ForceMode2D.Impulse);
-    }
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("ArenaBorder"))
+        {
             insideArena = true;
-    }
+            return;
+        }
 
+
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.TakeDamage(10f);
+        }
+    }
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("ArenaBorder"))

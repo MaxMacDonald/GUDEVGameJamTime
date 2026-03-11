@@ -14,6 +14,9 @@ public class Bullet : MonoBehaviour
             enemy.TakeDamage(damage);
         }
         gameObject.SetActive(false);
+        VFXManager.Instance.PlayHitVFX(transform.position,transform.rotation);
+
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)

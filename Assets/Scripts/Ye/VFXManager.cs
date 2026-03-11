@@ -4,6 +4,7 @@ public class VFXManager : MonoBehaviour
 {
     public static VFXManager Instance;
     public GameObject enemyDeathVFXPrefab;
+    public GameObject EnemyGetHitVFXPrefab;
     public float destroyDelay = 2f;
 
     private void Awake()
@@ -19,6 +20,12 @@ public class VFXManager : MonoBehaviour
 
     }
 
+    public void PlayHitVFX(Vector3 position, Quaternion rotation)
+    {
+        GameObject vfx = Instantiate(EnemyGetHitVFXPrefab, position, rotation, transform);
+        Destroy(vfx, destroyDelay);
+
+    }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

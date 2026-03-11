@@ -190,6 +190,7 @@ MonoBehaviour:
   rb: {fileID: 752102047289780652}
   weaponObject: {fileID: 1983150298742813407}
   rewindIntensity: 0.01
+  rewindResource: {fileID: 0}
   survivalTimer: {fileID: 0}
   enemySpawner: {fileID: 0}
 --- !u!114 &3762066398874899478

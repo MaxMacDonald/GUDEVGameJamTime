@@ -988,12 +988,15 @@ MonoBehaviour:
   - time: 0
     enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
     count: 3
+    swarmRadius: 0
   - time: 5
     enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
     count: 3
+    swarmRadius: 0
   - time: 10
     enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
     count: 3
+    swarmRadius: 0
   nextEventIndex: 0
   elapsedTime: 0
   spawnMargin: 1
@@ -1544,6 +1547,63 @@ RectTransform:
   m_AnchoredPosition: {x: 850, y: 503.8}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1001 &926211705
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2078840160764337219, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_Name
+      value: VFXPool
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860851097698851223, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.65304
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860851097698851223, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 4.4553
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860851097698851223, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860851097698851223, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860851097698851223, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860851097698851223, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860851097698851223, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860851097698851223, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860851097698851223, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3860851097698851223, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: ac582299f3cae774dae1c40a072bbc47, type: 3}
 --- !u!1 &1010074217
 GameObject:
   m_ObjectHideFlags: 0
@@ -1874,6 +1934,7 @@ MonoBehaviour:
   fireRate: 0.075
   bulletsPerShot: 1
   spreadAngle: 10
+  shootFeedback: {fileID: 0}
 --- !u!1 &1857913397
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,6 +2097,7 @@ MonoBehaviour:
   rb: {fileID: 1857913402}
   weaponObject: {fileID: 1845523876}
   rewindIntensity: 0.01
+  rewindResource: {fileID: 0}
   survivalTimer: {fileID: 756451751}
   enemySpawner: {fileID: 596972269}
 --- !u!50 &1857913402
@@ -2465,3 +2527,4 @@ SceneRoots:
   - {fileID: 596972270}
   - {fileID: 1954448705}
   - {fileID: 733964659}
+  - {fileID: 926211705}

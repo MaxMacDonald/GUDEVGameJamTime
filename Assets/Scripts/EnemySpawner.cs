@@ -3,6 +3,8 @@ using System.Collections.Generic;
 
 public class EnemySpawner : MonoBehaviour
 {
+    public static EnemySpawner Instance;
+
     [System.Serializable]
     public struct SpawnEvent
     {
@@ -20,6 +22,12 @@ public class EnemySpawner : MonoBehaviour
     public float spawnMargin = 1f;
 
     private List<Vector2[]> cachedSpawnPositions = new List<Vector2[]>();
+    private void Awake()
+    {
+        Instance = this;
+    }
+
+
 
     void Start()
     {

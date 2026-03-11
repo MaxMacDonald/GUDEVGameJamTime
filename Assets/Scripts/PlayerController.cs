@@ -29,6 +29,9 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         weapon = weaponObject as IWeapon;
+        rewindResource = GameManager.Instance.GetComponent<RewindResource>();
+        survivalTimer = SurvivalTimer.Instance.GetComponent<SurvivalTimer>();
+        enemySpawner = EnemySpawner.Instance.GetComponent<EnemySpawner>();
     }
 
     void Update()

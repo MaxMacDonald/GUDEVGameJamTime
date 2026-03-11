@@ -3,10 +3,18 @@ using TMPro;
 
 public class SurvivalTimer : MonoBehaviour
 {
+    public static SurvivalTimer Instance;
+    
     public TextMeshProUGUI timerText;
     public GameOverUI gameOverUI;
     public float elapsedTime;
     private bool running = true;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
 
     void Update()
     {

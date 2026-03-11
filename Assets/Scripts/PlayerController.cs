@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     [Header("Rewind")]
     [SerializeField] float rewindIntensity = 0.02f;
 
+    [Header("Rewind Resource")]
+    public RewindResource rewindResource;
+
     [Header("References")]
     public SurvivalTimer survivalTimer;
     public EnemySpawner enemySpawner;
@@ -47,9 +50,10 @@ public class PlayerController : MonoBehaviour
 
     void HandleRewind()
     {
-        if (Keyboard.current.leftShiftKey.isPressed)
+        if (Keyboard.current.leftShiftKey.isPressed && rewindResource.CanRewind())
         {
             rewindValue += rewindIntensity;
+            rewindResource.ConsumeRewind(rewindIntensity);
 
             if (!isRewinding)
             {

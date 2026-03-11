@@ -8,8 +8,8 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        EnemyShooter enemy = collision.gameObject.GetComponent<EnemyShooter>();
-        if (enemy != null)
+        IEnemy enemy = collision.gameObject.GetComponent<IEnemy>();
+            if (enemy != null)
         {
             enemy.TakeDamage(damage);
         }

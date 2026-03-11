@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
                     positions[i],
                     Quaternion.identity
                 ).GetComponent<RewindAbstract>();
-                RewindManager.Instance.AddObjectForTracking(someObjectToSpawn, RewindManager.OutOfBoundsBehaviour.DisableDestroy);
+                RewindManager.Instance.AddObjectForTracking(someObjectToSpawn, RewindManager.OutOfBoundsBehaviour.Disable);
             }
             nextEventIndex++;
         }

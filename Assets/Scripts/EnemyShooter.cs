@@ -15,6 +15,7 @@ public class EnemyShooter : MonoBehaviour
     private Transform player;
     private float fireCooldown;
     private bool insideArena = false;
+    public bool isDead = false;
 
     void Start()
     {
@@ -67,8 +68,14 @@ public class EnemyShooter : MonoBehaviour
 
     public void TakeDamage(float damage)
     {
+        //if (isDead) return;
+
         health -= damage;
-        if (health <= 0f) Die();
+        if (health <= 0f)
+        {
+            isDead = true;
+            Die();
+        }
     }
 
     void Die()

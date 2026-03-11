@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 8571883212236265836}
   - component: {fileID: 1204203063627027331}
   - component: {fileID: 7507282910709332929}
+  - component: {fileID: -6819290070756318798}
   m_Layer: 7
   m_Name: EnemyShooter
   m_TagString: Enemy
@@ -218,6 +219,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 3898697755726546756, guid: 404fb7cf381940a41a3b6f4772bbfeaf, type: 3}
   firePoint: {fileID: 7566699360310732626}
   bulletForce: 10
+  isDead: 0
 --- !u!114 &7507282910709332929
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,3 +243,15 @@ MonoBehaviour:
       particleTrackingLimit: 0
       particleRestartFrom: 0
       particleSystems: []
+--- !u!114 &-6819290070756318798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5938037113267574566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cabf2f6c904fd8849b90a415831db1ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyRewind

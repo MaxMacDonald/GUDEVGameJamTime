@@ -97,6 +97,6 @@ public class PlayerController : MonoBehaviour
         survivalTimer.StopTimer();
         enemySpawner.StopSpawning();
         // Add death effects here later if needed
-        Destroy(gameObject);
+        this.gameObject.SetActive(false);
     }
 }

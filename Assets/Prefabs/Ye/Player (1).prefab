@@ -187,7 +187,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cc95e9131042324e8ddccbd81c1fe03, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerController
-  moveSpeed: 5
+  moveSpeed: 10
   rb: {fileID: 752102047289780652}
   weaponObject: {fileID: 1983150298742813407}
   rewindIntensity: 0.01
@@ -264,7 +264,7 @@ TrailRenderer:
   m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_MaskInteraction: 0
   m_Time: 5
   m_PreviewTimeScale: 1

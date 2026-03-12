@@ -28,10 +28,6 @@ public class EllipseBorder : MonoBehaviour
 
     void Start()
     {
-        Shader writeShader = Shader.Find("Custom/StencilWrite");
-        Shader voidShader = Shader.Find("Custom/StencilVoid");
-        Debug.Log($"StencilWrite found: {writeShader != null}");
-        Debug.Log($"StencilVoid found: {voidShader != null}");
 
         // Initialise springs
         springs = new SpringPoint[pointCount];

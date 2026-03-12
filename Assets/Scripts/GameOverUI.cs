@@ -30,13 +30,13 @@ public class GameOverUI : MonoBehaviour
     public void RestartGame()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        FindFirstObjectByType<SceneFader>().FadeToScene("MainGame");
     }
 
     public void GoToMenu()
     {
         Time.timeScale = 1f;
-        SceneManager.LoadScene("MainMenu"); // change to your menu scene name
+        FindFirstObjectByType<SceneFader>().FadeToScene("MainMenu"); // change to your menu scene name
     }
 
     private string FormatTime(float time)

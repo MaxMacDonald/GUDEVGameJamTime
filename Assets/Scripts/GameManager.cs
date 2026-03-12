@@ -28,6 +28,6 @@ public class GameManager : MonoBehaviour
     public void ToMainMenu()
     {
         //Check for escape button press
-        SceneManager.LoadScene(0);
+        FindFirstObjectByType<SceneFader>().FadeToScene("MainMenu");
     }
 }

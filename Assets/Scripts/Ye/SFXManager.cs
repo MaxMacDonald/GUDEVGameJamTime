@@ -1,7 +1,8 @@
+using MoreMountains.Feedbacks;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using MoreMountains.Feedbacks;
+using UnityEngine.Audio;
 using UnityEngine.Events;
 
 public class SFXManager : MonoBehaviour
@@ -9,13 +10,41 @@ public class SFXManager : MonoBehaviour
 
     public static SFXManager Instance;
     public MMF_Player enemyDieFeedback;
+    public MMF_Player rewindFeedback;
 
+    [SerializeField] private AudioMixerSnapshot normalSnapshot;
+    [SerializeField] private AudioMixerSnapshot rewindSnapshot;
 
+    [SerializeField] private float enterTime = 0.12f;
+    [SerializeField] private float exitTime = 0.18f;
 
     public void PlayEnemyDieFeedbacks()
     {
         enemyDieFeedback?.PlayFeedbacks();
     }
+
+    public void PlayRewindFeedbacks()
+    {
+        BGMAudioMixerStartRewind();
+        rewindFeedback?.PlayFeedbacks();
+    }
+
+    public void StopRewindFeedbacks()
+    {
+        BGMAudioMixerStopRewind();
+        rewindFeedback?.StopFeedbacks();
+    }
+
+    private void BGMAudioMixerStartRewind()
+    {
+        rewindSnapshot.TransitionTo(enterTime);
+    }
+
+    private void BGMAudioMixerStopRewind()
+    {
+        normalSnapshot.TransitionTo(exitTime);
+    }
+
 
     private void Awake()
     {

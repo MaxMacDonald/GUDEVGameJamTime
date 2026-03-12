@@ -67,10 +67,7 @@ Shader "Custom/SpriteOutlineExpanded"
                 return o;
             }
 
-            float SampleAlpha(float2 uv)
-            {
-                return tex2D(_MainTex, uv).a;
-            }
+
 
             fixed4 frag(v2f i) : SV_Target
             {

@@ -761,5 +761,5 @@ MonoBehaviour:
   rewindFeedback: {fileID: 6560817582603692112}
   normalSnapshot: {fileID: 24500006, guid: 2221e0bc997b352479cd90dfbf24fab4, type: 2}
   rewindSnapshot: {fileID: -6512945582864312139, guid: 2221e0bc997b352479cd90dfbf24fab4, type: 2}
-  enterTime: 0.12
-  exitTime: 0.18
+  enterTime: 0.02
+  exitTime: 4

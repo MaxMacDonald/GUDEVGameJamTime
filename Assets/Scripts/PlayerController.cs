@@ -62,6 +62,7 @@ public class PlayerController : MonoBehaviour
             {
                 RewindManager.Instance.StartRewindTimeBySeconds(rewindValue);
                 isRewinding = true;
+                SFXManager.Instance.PlayRewindFeedbacks();
             }
             else
             {
@@ -76,6 +77,7 @@ public class PlayerController : MonoBehaviour
                 RewindManager.Instance.StopRewindTimeBySeconds();
                 rewindValue = 0f;
                 isRewinding = false;
+                SFXManager.Instance.StopRewindFeedbacks();
             }
         }
     }

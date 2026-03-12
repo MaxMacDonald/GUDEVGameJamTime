@@ -15,8 +15,8 @@ public class SFXManager : MonoBehaviour
     [SerializeField] private AudioMixerSnapshot normalSnapshot;
     [SerializeField] private AudioMixerSnapshot rewindSnapshot;
 
-    [SerializeField] private float enterTime = 0.12f;
-    [SerializeField] private float exitTime = 0.18f;
+    public float enterTime = 0.02f;
+    public float exitTime = 5.0f;
 
     public void PlayEnemyDieFeedbacks()
     {

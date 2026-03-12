@@ -924,7 +924,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
+  m_BackGroundColor: {r: 0.1745283, g: 0.1745283, b: 0.1745283, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
@@ -1677,6 +1677,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawner
       objectReference: {fileID: 0}
+    - target: {fileID: 2059861879293281387, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
       propertyPath: m_LocalPosition.x
       value: 2.75313
@@ -1858,6 +1862,18 @@ PrefabInstance:
     - target: {fileID: 1546855042453301914, guid: 73adc9cb1f0daf240a2b8eba37b1ddf2, type: 3}
       propertyPath: borderWidth
       value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546855042453301914, guid: 73adc9cb1f0daf240a2b8eba37b1ddf2, type: 3}
+      propertyPath: borderColor.b
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546855042453301914, guid: 73adc9cb1f0daf240a2b8eba37b1ddf2, type: 3}
+      propertyPath: borderColor.g
+      value: 0.8726415
+      objectReference: {fileID: 0}
+    - target: {fileID: 1546855042453301914, guid: 73adc9cb1f0daf240a2b8eba37b1ddf2, type: 3}
+      propertyPath: borderColor.r
+      value: 0.8726415
       objectReference: {fileID: 0}
     - target: {fileID: 5072697501882020392, guid: 73adc9cb1f0daf240a2b8eba37b1ddf2, type: 3}
       propertyPath: m_Name

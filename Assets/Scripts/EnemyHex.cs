@@ -86,6 +86,9 @@ public class EnemyHex : MonoBehaviour, IEnemy
         if (collision.CompareTag("ArenaBorder"))
         {
             insideArena = true;
+            EllipseBorder border = FindFirstObjectByType<EllipseBorder>();
+            if (border != null)
+                border.Ripple(transform.position, 10f, pushOutward: false);
             return;
         }
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();

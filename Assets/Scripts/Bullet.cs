@@ -23,6 +23,11 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("ArenaBorder"))
         {
+            // Cause a ripple on the border
+            EllipseBorder border = FindFirstObjectByType<EllipseBorder>();
+            if (border != null)
+                border.Ripple(transform.position, 5f);
+
             GetComponent<Collider2D>().enabled = false;
             disableTimer = 5f;
         }

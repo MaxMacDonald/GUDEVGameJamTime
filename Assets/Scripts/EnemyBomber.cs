@@ -72,6 +72,9 @@ public class EnemyBomber : MonoBehaviour, IEnemy
         if (collision.CompareTag("ArenaBorder"))
         {
             insideArena = true;
+            EllipseBorder border = FindFirstObjectByType<EllipseBorder>();
+            if (border != null)
+                border.Ripple(transform.position, 5f, pushOutward: false);
             return;
         }
 

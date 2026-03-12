@@ -20,6 +20,9 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.CompareTag("ArenaBorder"))
         {
+            EllipseBorder border = FindFirstObjectByType<EllipseBorder>();
+            if (border != null)
+                border.Ripple(transform.position, 1f);
             GetComponent<Collider2D>().enabled = false;
             disableTimer = 5f;
         }

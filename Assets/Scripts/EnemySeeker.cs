@@ -51,6 +51,9 @@ public class EnemySeeker : MonoBehaviour, IEnemy
         if (collision.CompareTag("ArenaBorder"))
         {
             insideArena = true;
+            EllipseBorder border = FindFirstObjectByType<EllipseBorder>();
+            if (border != null)
+                border.Ripple(transform.position, 2f, pushOutward: false);
             return;
         }
 

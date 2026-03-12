@@ -2600,8 +2600,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RewindResource
   maxRewindSeconds: 5
-  rechargeRate: 0.3
-  rechargeDelay: 0.5
+  rechargeRate: 0.1
+  rechargeDelay: 3.5
   currentRewind: 5
   barFill: {fileID: 241313919}
 --- !u!114 &1960173348

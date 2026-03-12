@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
@@ -21,10 +22,17 @@ public class PlayerController : MonoBehaviour
     public SurvivalTimer survivalTimer;
     public EnemySpawner enemySpawner;
 
+    [Header("Death Settings")]
+    public float slowMotionScale = 0.2f;        // how slow time gets on hit
+    public float rewindWindowDuration = 2f;     // real-time seconds player has to rewind
+    public Animator playerAnimator;             // leave space for death animation
+
     Vector2 moveDirection;
     Vector2 mousePosition;
     bool isRewinding = false;
     float rewindValue = 0f;
+    bool isInDeathWindow = false;
+    bool isDead = false;
 
     private void Start()
     {
@@ -36,6 +44,8 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (isDead) return;
+
         Vector2 input = new Vector2(
             Keyboard.current.dKey.isPressed ? 1 : Keyboard.current.aKey.isPressed ? -1 : 0,
             Keyboard.current.wKey.isPressed ? 1 : Keyboard.current.sKey.isPressed ? -1 : 0
@@ -43,7 +53,7 @@ public class PlayerController : MonoBehaviour
         moveDirection = input.normalized;
         mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
 
-        if (Mouse.current.leftButton.isPressed && !isRewinding)
+        if (Mouse.current.leftButton.isPressed && !isRewinding && !isInDeathWindow)
         {
             weapon.Fire();
         }
@@ -69,6 +79,12 @@ public class PlayerController : MonoBehaviour
                 if (RewindManager.Instance.HowManySecondsAvailableForRewind > rewindValue)
                     RewindManager.Instance.SetTimeSecondsInRewind(rewindValue);
             }
+
+            // If player rewinds during death window, cancel death
+            if (isInDeathWindow)
+            {
+                CancelDeath();
+            }
         }
         else
         {
@@ -78,25 +94,87 @@ public class PlayerController : MonoBehaviour
                 rewindValue = 0f;
                 isRewinding = false;
                 SFXManager.Instance.StopRewindFeedbacks();
+
+                // If they stop rewinding during death window, restore normal speed
+                if (isInDeathWindow)
+                    Time.timeScale = slowMotionScale;
             }
         }
     }
 
+    public void TakeDamage(float damage)
+    {
+        if (isDead || isInDeathWindow) return;
+
+        if (rewindResource.CanRewind())
+        {
+            StartCoroutine(DeathWindow());
+        }
+        else
+        {
+            // No rewind resource left - die immediately
+            Die();
+        }
+    }
+
+    IEnumerator DeathWindow()
+    {
+        isInDeathWindow = true;
+
+        // Slow motion
+        Time.timeScale = slowMotionScale;
+
+        // TODO: Play hit animation here
+        // if (playerAnimator != null) playerAnimator.SetTrigger("Hit");
+
+        // Wait for rewind window in real time (unscaled)
+        float elapsed = 0f;
+        while (elapsed < rewindWindowDuration)
+        {
+            // If they started rewinding, keep waiting until they stop
+            if (isRewinding)
+            {
+                elapsed = 0f; // reset timer while rewinding
+            }
+
+            elapsed += Time.unscaledDeltaTime;
+            yield return null;
+        }
+
+        // Window expired and they didn't rewind far enough - die
+        if (isInDeathWindow)
+        {
+            Die();
+        }
+    }
+
+    void CancelDeath()
+    {
+        isInDeathWindow = false;
+        Time.timeScale = 1f;
+    }
+
+    void Die()
+    {
+        isDead = true;
+        isInDeathWindow = false;
+        Time.timeScale = 1f;
+
+        survivalTimer.StopTimer();
+        enemySpawner.StopSpawning();
+
+        // TODO: Play death animation here
+        // if (playerAnimator != null) playerAnimator.SetTrigger("Die");
+
+        gameObject.SetActive(false);
+    }
+
     private void FixedUpdate()
     {
-        if (isRewinding) return;
-
+        if (isRewinding || isDead) return;
         rb.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = aimAngle;
-    }
-
-    public void TakeDamage(float damage)
-    {
-        survivalTimer.StopTimer();
-        enemySpawner.StopSpawning();
-        // Add death effects here later if needed
-        this.gameObject.SetActive(false);
     }
 }

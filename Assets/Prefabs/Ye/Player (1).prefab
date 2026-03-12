@@ -190,10 +190,13 @@ MonoBehaviour:
   moveSpeed: 10
   rb: {fileID: 752102047289780652}
   weaponObject: {fileID: 1983150298742813407}
-  rewindIntensity: 0.01
+  rewindIntensity: 0.003
   rewindResource: {fileID: 0}
   survivalTimer: {fileID: 0}
   enemySpawner: {fileID: 0}
+  slowMotionScale: 0.1
+  rewindWindowDuration: 1.5
+  playerAnimator: {fileID: 0}
 --- !u!114 &3762066398874899478
 MonoBehaviour:
   m_ObjectHideFlags: 0

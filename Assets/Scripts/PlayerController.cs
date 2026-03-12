@@ -34,12 +34,16 @@ public class PlayerController : MonoBehaviour
     bool isInDeathWindow = false;
     bool isDead = false;
 
+   
+    public EllipseBorder ellipseBorder;
+
     private void Start()
     {
         weapon = weaponObject as IWeapon;
         rewindResource = GameManager.Instance.GetComponent<RewindResource>();
         survivalTimer = SurvivalTimer.Instance.GetComponent<SurvivalTimer>();
         enemySpawner = EnemySpawner.Instance.GetComponent<EnemySpawner>();
+        ellipseBorder = EllipseBorder.Instance.GetComponent<EllipseBorder>();
     }
 
     void Update()
@@ -169,6 +173,36 @@ public class PlayerController : MonoBehaviour
         gameObject.SetActive(false);
     }
 
+    void ConstrainToArena()
+    {
+        Vector2 pos = rb.position;
+
+        float a = ellipseBorder.radiusX;
+        float b = ellipseBorder.radiusY;
+
+        float ellipseValue = (pos.x * pos.x) / (a * a) + (pos.y * pos.y) / (b * b);
+
+        if (ellipseValue > 1f)
+        {
+            // Project back onto ellipse edge
+            float angle = Mathf.Atan2(pos.y / b, pos.x / a);
+            Vector2 closestPoint = new Vector2(
+                a * Mathf.Cos(angle),
+                b * Mathf.Sin(angle)
+            );
+
+            // Calculate inward normal
+            Vector2 inwardNormal = -new Vector2(
+                Mathf.Cos(angle) / a,
+                Mathf.Sin(angle) / b
+            ).normalized;
+
+            // Bounce velocity off the border
+            rb.position = closestPoint;
+            rb.linearVelocity = Vector2.Reflect(rb.linearVelocity, inwardNormal) * 0.5f;
+        }
+    }
+
     private void FixedUpdate()
     {
         if (isRewinding || isDead) return;
@@ -176,5 +210,6 @@ public class PlayerController : MonoBehaviour
         Vector2 aimDirection = mousePosition - rb.position;
         float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
         rb.rotation = aimAngle;
+        ConstrainToArena();
     }
 }

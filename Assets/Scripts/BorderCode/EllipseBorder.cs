@@ -3,6 +3,9 @@ using UnityEngine;
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer))]
 public class EllipseBorder : MonoBehaviour
 {
+
+    public static EllipseBorder Instance;
+
     [Header("Ellipse Shape")]
     public float radiusX = 8f;
     public float radiusY = 5f;
@@ -28,6 +31,7 @@ public class EllipseBorder : MonoBehaviour
 
     void Start()
     {
+  
 
         // Initialise springs
         springs = new SpringPoint[pointCount];
@@ -44,6 +48,10 @@ public class EllipseBorder : MonoBehaviour
         
        
 
+    }
+    void Awake()
+    {
+        Instance = this;
     }
 
     void FixedUpdate()

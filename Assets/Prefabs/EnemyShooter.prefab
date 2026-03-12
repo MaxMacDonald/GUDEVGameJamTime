@@ -220,7 +220,6 @@ MonoBehaviour:
   firePoint: {fileID: 7566699360310732626}
   bulletForce: 15
   isDead: 0
-  DieFeedback: {fileID: 0}
 --- !u!114 &7507282910709332929
 MonoBehaviour:
   m_ObjectHideFlags: 0

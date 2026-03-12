@@ -1245,7 +1245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d50d6419b73bd84cb5aeeab7074aad8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  enemyDeathSFXPrefab: {fileID: 0}
+  enemyDieFeedback: {fileID: 1837697361}
 --- !u!4 &1199194932
 Transform:
   m_ObjectHideFlags: 0

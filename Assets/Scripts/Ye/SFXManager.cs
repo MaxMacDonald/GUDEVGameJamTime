@@ -1,11 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using MoreMountains.Feedbacks;
+using UnityEngine.Events;
 
 public class SFXManager : MonoBehaviour
 {
 
     public static SFXManager Instance;
-    public AudioClip enemyDeathSFXPrefab;
+    public MMF_Player enemyDieFeedback;
 
+
+
+    public void PlayEnemyDieFeedbacks()
+    {
+        enemyDieFeedback?.PlayFeedbacks();
+    }
 
     private void Awake()
     {

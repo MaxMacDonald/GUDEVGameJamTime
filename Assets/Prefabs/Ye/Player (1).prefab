@@ -5671,8 +5671,8 @@ MonoBehaviour:
         PoolSize: 10
         UseLegacyEventsMode: 0
         StopSoundOnFeedbackStop: 1
-        MinVolume: 0.1
-        MaxVolume: 0.2
+        MinVolume: 0.353
+        MaxVolume: 0.601
         MinPitch: 0.5
         MaxPitch: 0.7
         SfxAudioMixerGroup: {fileID: 0}

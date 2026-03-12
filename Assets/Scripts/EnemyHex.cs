@@ -23,8 +23,11 @@ public class EnemyHex : MonoBehaviour, IEnemy
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public bool InsideArena { get => insideArena; set => insideArena = value; }
 
+
+
     void Start()
     {
+        
         player = GameObject.FindWithTag("Player").transform;
         spawnCooldown = spawnRate;
     }
@@ -107,6 +110,11 @@ public class EnemyHex : MonoBehaviour, IEnemy
     public void TakeDamage(float damage)
     {
         health -= damage;
+
+        // Play hit feedbacks
+        var getHitFeedback = GetComponent<MMF_Player>();
+        getHitFeedback?.PlayFeedbacks();
+
         if (health <= 0f)
         {
             isDead = true;

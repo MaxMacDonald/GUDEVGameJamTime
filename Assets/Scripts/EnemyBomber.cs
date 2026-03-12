@@ -96,6 +96,11 @@ public class EnemyBomber : MonoBehaviour, IEnemy
     {
 
         health -= damage;
+
+        // Play hit feedbacks
+        var getHitFeedback = GetComponent<MMF_Player>();
+        getHitFeedback?.PlayFeedbacks();
+
         if (health <= 0f)
         {
             isDead = true;

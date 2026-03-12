@@ -25,8 +25,6 @@ public class EnemyShooter : MonoBehaviour, IEnemy
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
     public bool InsideArena { get => insideArena; set => insideArena = value; }
 
-
-
     void Start()
     {
         player = GameObject.FindWithTag("Player").transform;
@@ -93,6 +91,11 @@ public class EnemyShooter : MonoBehaviour, IEnemy
     {
 
         health -= damage;
+
+        // Play hit feedbacks
+        var getHitFeedback = GetComponent<MMF_Player>();
+        getHitFeedback?.PlayFeedbacks();
+
         if (health <= 0f)
         {
             isDead = true;

@@ -11,6 +11,7 @@ public class SFXManager : MonoBehaviour
     public static SFXManager Instance;
     public MMF_Player enemyDieFeedback;
     public MMF_Player rewindFeedback;
+    public MMF_Player enemyGetHitSoundFeedback;
 
     [SerializeField] private AudioMixerSnapshot normalSnapshot;
     [SerializeField] private AudioMixerSnapshot rewindSnapshot;
@@ -22,6 +23,11 @@ public class SFXManager : MonoBehaviour
     {
         enemyDieFeedback?.PlayFeedbacks();
     }
+    public void PlayEnemyGetHitSoundFeedbacks()
+    {
+        enemyGetHitSoundFeedback?.PlayFeedbacks();
+    }
+
 
     public void PlayRewindFeedbacks()
     {

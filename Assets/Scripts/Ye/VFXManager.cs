@@ -31,6 +31,7 @@ public class VFXManager : MonoBehaviour
         GameObject vfx = Instantiate(enemyGetHitVFXPrefab, position, rotation, transform);
         Destroy(vfx, destroyDelay);
 
+        SFXManager.Instance.PlayEnemyGetHitSoundFeedbacks();
     }
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created

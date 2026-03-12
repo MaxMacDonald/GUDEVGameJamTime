@@ -1,16 +1,19 @@
 using UnityEngine;
 using MoreMountains.Feedbacks;
 
-public class EnemySeeker : MonoBehaviour, IEnemy
+public class EnemyBomber : MonoBehaviour, IEnemy
 {
     [Header("Stats")]
     public float health = 30f;
     public float moveSpeed = 2f;
-    public float fireRate = 1f;
 
- 
+    [Header("Bomb")]
+    public GameObject bulletPrefab;
+    public int bombSize = 6;
+    public float bulletForce = 10f;
 
     private Transform player;
+ 
     private bool insideArena = false;
     public bool isDead = false;
 
@@ -34,6 +37,8 @@ public class EnemySeeker : MonoBehaviour, IEnemy
 
         MoveTowardsPlayer();
 
+        if (!insideArena) return;
+
     }
 
     void MoveTowardsPlayer()
@@ -45,6 +50,22 @@ public class EnemySeeker : MonoBehaviour, IEnemy
         transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 
+    void Explode()
+    {
+        float angleStep = 360f / bombSize;
+        float randomOffset = Random.Range(0f, 360f);
+
+        for (int i = 0; i < bombSize; i++)
+        {
+            float angle = i * angleStep + randomOffset;
+            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+            Vector2 direction = rotation * Vector2.up;
+
+            RewindAbstract bullet = Instantiate(bulletPrefab, transform.position, rotation).GetComponent<RewindAbstract>();
+            RewindManager.Instance.AddObjectForTracking(bullet, RewindManager.OutOfBoundsBehaviour.DisableDestroy);
+            bullet.GetComponent<Rigidbody2D>().AddForce(direction * bulletForce, ForceMode2D.Impulse);
+        }
+    }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -81,6 +102,7 @@ public class EnemySeeker : MonoBehaviour, IEnemy
 
     public void Die()
     {
+        Explode();
         VFXManager.Instance.PlayEnemyDeathVFX(transform.position);
         gameObject.SetActive(false);
 

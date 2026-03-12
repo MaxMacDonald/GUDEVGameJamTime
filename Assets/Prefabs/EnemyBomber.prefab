@@ -43,12 +43,12 @@ GameObject:
   - component: {fileID: 8052463603312409922}
   - component: {fileID: 7835041575584249413}
   - component: {fileID: 8571883212236265836}
-  - component: {fileID: 1204203063627027331}
+  - component: {fileID: 173577816668330608}
   - component: {fileID: 7507282910709332929}
   - component: {fileID: -6819290070756318798}
   - component: {fileID: 3373761180670319009}
   m_Layer: 7
-  m_Name: EnemyShooter
+  m_Name: EnemyBomber
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,7 +119,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
+  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
   m_Color: {r: 0.3584906, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -202,7 +202,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &1204203063627027331
+--- !u!114 &173577816668330608
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -211,15 +211,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 5938037113267574566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 88c4646ef902f004e91cc2fa6bb0327a, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c3cf4e8dc7105743947c4b45c5a6419, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemyShooter
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBomber
   health: 30
-  moveSpeed: 5
-  fireRate: 1
+  moveSpeed: 2
   bulletPrefab: {fileID: 3898697755726546756, guid: 404fb7cf381940a41a3b6f4772bbfeaf, type: 3}
-  firePoint: {fileID: 7566699360310732626}
-  bulletForce: 15
+  bombSize: 6
+  firePoint: {fileID: 0}
+  bulletForce: 10
   isDead: 0
 --- !u!114 &7507282910709332929
 MonoBehaviour:

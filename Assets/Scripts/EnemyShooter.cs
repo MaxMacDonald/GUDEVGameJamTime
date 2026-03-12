@@ -67,7 +67,17 @@ public class EnemyShooter : MonoBehaviour, IEnemy
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("ArenaBorder"))
+        {
             insideArena = true;
+            return;
+        }
+
+
+        PlayerController player = collision.gameObject.GetComponent<PlayerController>();
+        if (player != null)
+        {
+            player.TakeDamage(10f);
+        }
     }
 
     private void OnTriggerExit2D(Collider2D collision)

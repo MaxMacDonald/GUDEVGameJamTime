@@ -17,7 +17,8 @@ public class VFXManager : MonoBehaviour
     {
         GameObject vfx = Instantiate(enemyDeathVFXPrefab, position, Quaternion.identity, transform);
         Destroy(vfx, destroyDelay);
-
+        
+        SFXManager.Instance.PlayEnemyDieFeedbacks();
     }
 
     public void PlayHitVFX(Vector3 position, Quaternion rotation)

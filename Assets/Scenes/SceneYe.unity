@@ -453,79 +453,63 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &324934927
-GameObject:
+--- !u!1001 &287791728
+PrefabInstance:
   m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 324934930}
-  - component: {fileID: 324934928}
-  - component: {fileID: 324934929}
-  m_Layer: 0
-  m_Name: EnemySpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &324934928
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324934927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 066779a15a340ea4b9aaa57ed7325430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawner
-  spawnEvents:
-  - time: 0
-    enemyPrefab: {fileID: 5325014902012182843, guid: c6e1ba9e08b9b4f48b976fb3fafbc44c, type: 3}
-    count: 10
-    swarmRadius: 3
-  - time: 5
-    enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
-    count: 3
-    swarmRadius: 0
-  - time: 10
-    enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
-    count: 3
-    swarmRadius: 0
-  nextEventIndex: 0
-  elapsedTime: 0
-  spawnMargin: 1
---- !u!114 &324934929
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324934927}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 486490ae9cc0f5d43a16362a40c50762, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::EnemySpawnerRewind
---- !u!4 &324934930
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 324934927}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.75313, y: -1.64336, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2059861879293281387, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_Name
+      value: EnemySpawner (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.09752
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.17684
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
 --- !u!1 &363389504
 GameObject:
   m_ObjectHideFlags: 0
@@ -1209,7 +1193,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1199194932}
   - component: {fileID: 1199194931}
-  - component: {fileID: 1199194930}
   m_Layer: 0
   m_Name: SFXPool
   m_TagString: Untagged
@@ -1217,22 +1200,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1199194930
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1199194929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 614edb33c38bcf949846d5675f29f9fb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMSoundManager
-  AutomaticallyUnparentOnAwake: 1
-  settingsSo: {fileID: 11400000, guid: 07ea3ff88e1ecb84d91f58aa804badc6, type: 2}
-  AudioSourcePoolSize: 10
-  PoolCanExpand: 1
 --- !u!114 &1199194931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2511,6 +2478,7 @@ GameObject:
   - component: {fileID: 2041468151}
   - component: {fileID: 2041468150}
   - component: {fileID: 2041468149}
+  - component: {fileID: 2041468153}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2636,6 +2604,22 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2041468153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2041468147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 614edb33c38bcf949846d5675f29f9fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Tools.MMSoundManager
+  AutomaticallyUnparentOnAwake: 1
+  settingsSo: {fileID: 11400000, guid: 07ea3ff88e1ecb84d91f58aa804badc6, type: 2}
+  AudioSourcePoolSize: 10
+  PoolCanExpand: 1
 --- !u!1 &2063301033
 GameObject:
   m_ObjectHideFlags: 0
@@ -2810,7 +2794,7 @@ Transform:
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
-  - {fileID: 324934930}
+  - {fileID: 287791728}
   - {fileID: 745343398}
   - {fileID: 676519817}
   - {fileID: 208110518}

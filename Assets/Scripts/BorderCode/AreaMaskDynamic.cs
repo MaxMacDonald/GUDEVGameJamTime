@@ -48,6 +48,7 @@ public class ArenaMaskDynamic : MonoBehaviour
         for (int i = 0; i < pointCount; i++)
         {
             float angle = (float)i / pointCount * Mathf.PI * 2f;
+            if (ellipseBorder.springs == null) return; // safety check
             float displacement = ellipseBorder.springs[i].position + ellipseBorder.borderWidth;  // add borderWidth here
 
             verts[i + 4] = new Vector3(

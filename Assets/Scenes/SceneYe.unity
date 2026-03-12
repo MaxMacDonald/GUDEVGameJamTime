@@ -2923,14 +2923,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3646830161982600577, guid: 265a92af3adc32c41ba293972a98eb4e, type: 3}
-      propertyPath: exitTime
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 3646830161982600577, guid: 265a92af3adc32c41ba293972a98eb4e, type: 3}
-      propertyPath: enterTime
-      value: 0.02
-      objectReference: {fileID: 0}
     - target: {fileID: 8272952897798993680, guid: 265a92af3adc32c41ba293972a98eb4e, type: 3}
       propertyPath: m_Name
       value: SFXPool

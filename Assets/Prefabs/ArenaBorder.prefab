@@ -163,11 +163,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e84883a69a468bc4fad87ee47ff72ddc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::EllipseBorder
-  radiusX: 5
-  radiusY: 5
-  pointCount: 64
-  borderWidth: 1
-  borderColor: {r: 0.5695755, g: 0.7119694, b: 0.759434, a: 0.8}
+  radiusX: 24
+  radiusY: 18
+  pointCount: 512
+  borderWidth: 0.2
+  borderColor: {r: 0.9748427, g: 0.9748427, b: 0.9748427, a: 0.8}
   springConstant: 50
   damping: 5
   spreadFactor: 0.08

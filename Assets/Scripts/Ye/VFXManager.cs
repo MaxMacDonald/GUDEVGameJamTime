@@ -4,7 +4,8 @@ public class VFXManager : MonoBehaviour
 {
     public static VFXManager Instance;
     public GameObject enemyDeathVFXPrefab;
-    public GameObject EnemyGetHitVFXPrefab;
+    public GameObject enemyDeathRingVFXPrefab;
+    public GameObject enemyGetHitVFXPrefab;
     public float destroyDelay = 2f;
 
     private void Awake()
@@ -17,13 +18,17 @@ public class VFXManager : MonoBehaviour
     {
         GameObject vfx = Instantiate(enemyDeathVFXPrefab, position, Quaternion.identity, transform);
         Destroy(vfx, destroyDelay);
-        
+
+        GameObject vfx2 = Instantiate(enemyDeathRingVFXPrefab, position, Quaternion.identity, transform);
+        //Made by Feel, will destroy itself after playing animation, so no need to destroy here
+
+
         SFXManager.Instance.PlayEnemyDieFeedbacks();
     }
 
     public void PlayHitVFX(Vector3 position, Quaternion rotation)
     {
-        GameObject vfx = Instantiate(EnemyGetHitVFXPrefab, position, rotation, transform);
+        GameObject vfx = Instantiate(enemyGetHitVFXPrefab, position, rotation, transform);
         Destroy(vfx, destroyDelay);
 
     }

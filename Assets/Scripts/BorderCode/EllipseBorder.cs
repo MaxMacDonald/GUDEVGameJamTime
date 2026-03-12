@@ -21,13 +21,18 @@ public class EllipseBorder : MonoBehaviour
     public float hitForce = 8f;
     public float hitRadius = 1.5f;      // how close something needs to be to cause a ripple
 
-    private SpringPoint[] springs;
+    public SpringPoint[] springs;
     private Mesh mesh;
     private Vector3[] vertices;
     private int[] triangles;
 
     void Start()
     {
+        Shader writeShader = Shader.Find("Custom/StencilWrite");
+        Shader voidShader = Shader.Find("Custom/StencilVoid");
+        Debug.Log($"StencilWrite found: {writeShader != null}");
+        Debug.Log($"StencilVoid found: {voidShader != null}");
+
         // Initialise springs
         springs = new SpringPoint[pointCount];
         for (int i = 0; i < pointCount; i++)
@@ -40,6 +45,9 @@ public class EllipseBorder : MonoBehaviour
 
         BuildMesh();
         UpdateCollider();
+        
+       
+
     }
 
     void FixedUpdate()
@@ -168,4 +176,6 @@ public class EllipseBorder : MonoBehaviour
         mat.color = borderColor;
         return mat;
     }
+
+
 }

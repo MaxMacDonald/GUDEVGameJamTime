@@ -399,6 +399,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3844576629732557184, guid: c778c591ae7246549b542ee02da2106c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 2147483647
+      objectReference: {fileID: 0}
     - target: {fileID: 7094594894520008425, guid: c778c591ae7246549b542ee02da2106c, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.27897
@@ -438,6 +442,38 @@ PrefabInstance:
     - target: {fileID: 7094594894520008425, guid: c778c591ae7246549b542ee02da2106c, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516219699528225590, guid: c778c591ae7246549b542ee02da2106c, type: 3}
+      propertyPath: managedReferences[3892775043918200905].Active
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516219699528225590, guid: c778c591ae7246549b542ee02da2106c, type: 3}
+      propertyPath: managedReferences[3892775043918200905].Duration
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516219699528225590, guid: c778c591ae7246549b542ee02da2106c, type: 3}
+      propertyPath: managedReferences[3892775043918200905].RemapOrthographicSizeOne
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516219699528225590, guid: c778c591ae7246549b542ee02da2106c, type: 3}
+      propertyPath: managedReferences[3892775043918200905].RemapOrthographicSizeZero
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516219699528225590, guid: c778c591ae7246549b542ee02da2106c, type: 3}
+      propertyPath: managedReferences[3892775043918200905].ShakeOrthographicSize.m_Curve.Array.data[1].time
+      value: 0.50556946
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516219699528225590, guid: c778c591ae7246549b542ee02da2106c, type: 3}
+      propertyPath: managedReferences[3892775043918200905].ShakeOrthographicSize.m_Curve.Array.data[2].time
+      value: 1.0111084
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516219699528225590, guid: c778c591ae7246549b542ee02da2106c, type: 3}
+      propertyPath: managedReferences[3892775043918200905].ShakeOrthographicSize.m_Curve.Array.data[1].value
+      value: 0.9873047
+      objectReference: {fileID: 0}
+    - target: {fileID: 7516219699528225590, guid: c778c591ae7246549b542ee02da2106c, type: 3}
+      propertyPath: managedReferences[3892775043918200905].ShakeOrthographicSize.m_Curve.Array.data[2].value
+      value: -0.009521484
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1850,6 +1886,7 @@ GameObject:
   - component: {fileID: 1493565907}
   - component: {fileID: 1493565906}
   - component: {fileID: 1493565905}
+  - component: {fileID: 1493565912}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -2040,6 +2077,67 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1493565912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493565904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31579fc1a653bad4fb53e3b1931fdd27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: MoreMountains.Tools::MoreMountains.Feedbacks.MMCameraOrthographicSizeShaker
+  ChannelMode: 0
+  Channel: 0
+  MMChannelDefinition: {fileID: 0}
+  ShakeDuration: 0.5
+  PlayOnAwake: 0
+  PermanentShake: 0
+  Interruptible: 1
+  AlwaysResetTargetValuesAfterShake: 0
+  OnlyUseShakerValues: 0
+  CooldownBetweenShakes: 0
+  Shaking: 0
+  ForwardDirection: 1
+  TimescaleMode: 0
+  RelativeOrthographicSize: 0
+  ShakeOrthographicSize:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.5
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  RemapOrthographicSizeZero: 20
+  RemapOrthographicSizeOne: 10
 --- !u!1 &1732678218
 GameObject:
   m_ObjectHideFlags: 0

@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 using System.Collections;
+using MoreMountains.Feedbacks;
 
 public class PlayerController : MonoBehaviour
 {
@@ -37,7 +38,7 @@ public class PlayerController : MonoBehaviour
     private float snapshotRadiusX;
     private float snapshotRadiusY;
 
-
+    public MMF_Player playerGetHitFeedbacks;
 
     public EllipseBorder ellipseBorder;
 
@@ -116,6 +117,14 @@ public class PlayerController : MonoBehaviour
     public void TakeDamage(float damage)
     {
         if (isDead || isInDeathWindow) return;
+        
+        //playFeedbacks
+        if(playerGetHitFeedbacks != null)
+        {
+            playerGetHitFeedbacks?.PlayFeedbacks();
+            Debug.Log("Player took damage!");
+        }
+
 
         if (rewindResource.CanRewind())
         {

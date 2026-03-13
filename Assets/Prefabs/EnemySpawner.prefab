@@ -102,13 +102,13 @@ MonoBehaviour:
     enemyPrefab: {fileID: 5938037113267574566, guid: 7ac7d5ace878e66469ca9d16d436ff18, type: 3}
     count: 10
     swarmRadius: 3
-  - time: 37
+  - time: 35
     enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
     count: 3
     swarmRadius: 0
   - time: 45
     enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
-    count: 6
+    count: 4
     swarmRadius: 0
   - time: 45
     enemyPrefab: {fileID: 5938037113267574566, guid: 4b80d166632f956419abad28a2782f85, type: 3}
@@ -138,6 +138,66 @@ MonoBehaviour:
     enemyPrefab: {fileID: 5938037113267574566, guid: 7ac7d5ace878e66469ca9d16d436ff18, type: 3}
     count: 10
     swarmRadius: 3
+  - time: 75
+    enemyPrefab: {fileID: 5938037113267574566, guid: 7ac7d5ace878e66469ca9d16d436ff18, type: 3}
+    count: 15
+    swarmRadius: 6
+  - time: 75
+    enemyPrefab: {fileID: 5938037113267574566, guid: d3d62f370bda3bd48885bdd72738a8d0, type: 3}
+    count: 3
+    swarmRadius: 0
+  - time: 85
+    enemyPrefab: {fileID: 5938037113267574566, guid: 4b80d166632f956419abad28a2782f85, type: 3}
+    count: 2
+    swarmRadius: 0
+  - time: 85
+    enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
+    count: 2
+    swarmRadius: 3
+  - time: 85
+    enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
+    count: 2
+    swarmRadius: 3
+  - time: 90
+    enemyPrefab: {fileID: 5938037113267574566, guid: 4b80d166632f956419abad28a2782f85, type: 3}
+    count: 2
+    swarmRadius: 0
+  - time: 100
+    enemyPrefab: {fileID: 5938037113267574566, guid: 7ac7d5ace878e66469ca9d16d436ff18, type: 3}
+    count: 20
+    swarmRadius: 0
+  - time: 100
+    enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
+    count: 5
+    swarmRadius: 5
+  - time: 100
+    enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
+    count: 5
+    swarmRadius: 5
+  - time: 110
+    enemyPrefab: {fileID: 5938037113267574566, guid: 4b80d166632f956419abad28a2782f85, type: 3}
+    count: 4
+    swarmRadius: 0
+  - time: 113
+    enemyPrefab: {fileID: 5938037113267574566, guid: 7ac7d5ace878e66469ca9d16d436ff18, type: 3}
+    count: 10
+    swarmRadius: 0
+  - time: 113
+    enemyPrefab: {fileID: 5938037113267574566, guid: 7ac7d5ace878e66469ca9d16d436ff18, type: 3}
+    count: 10
+    swarmRadius: 0
+  - time: 110
+    enemyPrefab: {fileID: 5938037113267574566, guid: d3d62f370bda3bd48885bdd72738a8d0, type: 3}
+    count: 3
+    swarmRadius: 0
+  - time: 110
+    enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
+    count: 3
+    swarmRadius: 0
+  - time: 110
+    enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
+    count: 3
+    swarmRadius: 0
   nextEventIndex: 0
   elapsedTime: 0
   spawnMargin: 1

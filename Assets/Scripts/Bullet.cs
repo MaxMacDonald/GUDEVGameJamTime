@@ -23,6 +23,8 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("ArenaBorder"))
         {
+            // Play a hit wall VFX
+            VFXManager.Instance.PlayHitWallVFX(transform.position);
             // Cause a ripple on the border
             EllipseBorder border = FindFirstObjectByType<EllipseBorder>();
             if (border != null)

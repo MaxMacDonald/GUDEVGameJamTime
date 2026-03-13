@@ -48,6 +48,7 @@ MonoBehaviour:
   enemyDeathVFXPrefab: {fileID: 8405657919531631688, guid: c701f77b8f457e44aa57059352029a2f, type: 3}
   enemyDeathRingVFXPrefab: {fileID: 736350561596263535, guid: 4a14f97b58f5bd4428fc3c796013fe15, type: 3}
   enemyGetHitVFXPrefab: {fileID: 1233003171695256708, guid: 88192fb14023b794ab11a5ff93225e0a, type: 3}
+  bulletHitWallVFXPrefab: {fileID: 8405657919531631688, guid: 62518fbc664241147bf9c01734c6a600, type: 3}
   destroyDelay: 2
 --- !u!1001 &1561009947232952037
 PrefabInstance:

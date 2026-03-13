@@ -6,6 +6,9 @@ public class VFXManager : MonoBehaviour
     public GameObject enemyDeathVFXPrefab;
     public GameObject enemyDeathRingVFXPrefab;
     public GameObject enemyGetHitVFXPrefab;
+    public GameObject bulletHitWallVFXPrefab;
+
+
     public float destroyDelay = 2f;
 
     private void Awake()
@@ -33,6 +36,14 @@ public class VFXManager : MonoBehaviour
 
         SFXManager.Instance.PlayEnemyGetHitSoundFeedbacks();
     }
+
+    public void PlayHitWallVFX(Vector3 position)
+    {
+        GameObject vfx = Instantiate(bulletHitWallVFXPrefab, position, Quaternion.identity, transform);
+        Destroy(vfx, destroyDelay);
+
+    }
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()

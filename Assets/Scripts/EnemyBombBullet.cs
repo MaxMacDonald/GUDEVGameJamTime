@@ -1,19 +1,20 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyBullet : MonoBehaviour
+public class EnemyBombBullet : MonoBehaviour
 {
     public float damage = 10f;
     private float disableTimer = -1f;
-    public virtual void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if (player != null)
         {
             player.TakeDamage(damage);
+            gameObject.SetActive(false);
         }
-        gameObject.SetActive(false);
+        
     }
 
     private void OnTriggerExit2D(Collider2D collision)

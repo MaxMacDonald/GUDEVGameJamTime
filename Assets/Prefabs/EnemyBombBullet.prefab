@@ -11,12 +11,12 @@ GameObject:
   - component: {fileID: 4908497300634063909}
   - component: {fileID: 44219690166920546}
   - component: {fileID: 6571297835600242479}
-  - component: {fileID: 3822025191774359992}
-  - component: {fileID: 1633710645796030852}
-  - component: {fileID: -3407683740076134345}
-  - component: {fileID: 9070414684929874758}
-  m_Layer: 9
-  m_Name: Bullet
+  - component: {fileID: 4439254272230201990}
+  - component: {fileID: 6631314828884137572}
+  - component: {fileID: 1242432224339869171}
+  - component: {fileID: 3510440656659043171}
+  m_Layer: 6
+  m_Name: EnemyBombBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.046, y: 0.754, z: 0}
-  m_LocalScale: {x: 0.24, y: 1, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -63,7 +63,7 @@ SpriteRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -86,8 +86,8 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 75f5f34dc1b5347e0b8351032682f224, type: 3}
-  m_Color: {r: 0.9150943, g: 0.9150943, b: 0.9150943, a: 1}
+  m_Sprite: {fileID: 21300000, guid: a2836966129a652438b37646caf0dbce, type: 3}
+  m_Color: {r: 1, g: 0.38488668, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -118,12 +118,12 @@ Rigidbody2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 512
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!114 &3822025191774359992
+--- !u!114 &4439254272230201990
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132,12 +132,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 3898697755726546756}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a74d2d90c3e1e1440a77760bd026117f, type: 3}
+  m_Script: {fileID: 11500000, guid: db79257c424324d40a0e995fc71c2f7b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Bullet
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyBombBullet
   damage: 10
---- !u!60 &1633710645796030852
-PolygonCollider2D:
+--- !u!58 &6631314828884137572
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -171,22 +171,8 @@ PolygonCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.28866667}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Points:
-    m_Paths:
-    - - {x: 0, y: 0.5773587}
-      - {x: -0.5, y: -0.28866667}
-      - {x: 0.5, y: -0.28866667}
-  m_UseDelaunayMesh: 1
---- !u!114 &-3407683740076134345
+  m_Radius: 0.5
+--- !u!114 &1242432224339869171
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,7 +195,7 @@ MonoBehaviour:
       particleTrackingLimit: 0
       particleRestartFrom: 0
       particleSystems: []
---- !u!96 &9070414684929874758
+--- !u!96 &3510440656659043171
 TrailRenderer:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -267,8 +253,8 @@ TrailRenderer:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
-        time: 0.0012207031
-        value: 0.5019671
+        time: 0
+        value: 0.5045954
         inSlope: 0
         outSlope: 0
         tangentMode: 0
@@ -289,9 +275,9 @@ TrailRenderer:
       m_RotationOrder: 4
     colorGradient:
       serializedVersion: 2
-      key0: {r: 0.836478, g: 0.836478, b: 0.836478, a: 0.45882353}
-      key1: {r: 0.6226415, g: 0.6226415, b: 0.6226415, a: 0}
-      key2: {r: 0, g: 0, b: 0, a: 0}
+      key0: {r: 0, g: 0, b: 0, a: 1}
+      key1: {r: 0, g: 0, b: 0, a: 0.16078432}
+      key2: {r: 0, g: 0, b: 0, a: 0.14440809}
       key3: {r: 0, g: 0, b: 0, a: 0}
       key4: {r: 0, g: 0, b: 0, a: 0}
       key5: {r: 0, g: 0, b: 0, a: 0}
@@ -306,8 +292,8 @@ TrailRenderer:
       ctime6: 0
       ctime7: 0
       atime0: 0
-      atime1: 65535
-      atime2: 65535
+      atime1: 51657
+      atime2: 53071
       atime3: 65535
       atime4: 0
       atime5: 0
@@ -316,7 +302,7 @@ TrailRenderer:
       m_Mode: 0
       m_ColorSpace: 0
       m_NumColorKeys: 2
-      m_NumAlphaKeys: 2
+      m_NumAlphaKeys: 4
     numCornerVertices: 60
     numCapVertices: 0
     alignment: 0

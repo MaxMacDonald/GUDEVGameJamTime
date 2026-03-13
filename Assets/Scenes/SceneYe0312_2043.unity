@@ -2891,13 +2891,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerDeathEffect
       objectReference: {fileID: 0}
+    - target: {fileID: 1726787229858887926, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 1948070975462448438, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
       propertyPath: ColorModule.enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1948070975462448438, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1948070975462448438, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
       propertyPath: ColorModule.gradient.minMaxState
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1989379657548155040, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 2882640862419370382, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2938,6 +2950,22 @@ PrefabInstance:
     - target: {fileID: 2882640862419370382, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3126070837959088877, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3457994725407929160, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 3883242997851601811, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 7304755104705563178, guid: c5e2a9bb36c37864a9f5f0f52dbcbee6, type: 3}
+      propertyPath: InitialModule.maxNumParticles
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

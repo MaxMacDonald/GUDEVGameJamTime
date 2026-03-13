@@ -217,7 +217,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyBomber
   health: 30
   moveSpeed: 2
-  bulletPrefab: {fileID: 3898697755726546756, guid: 404fb7cf381940a41a3b6f4772bbfeaf, type: 3}
+  bulletPrefab: {fileID: 3898697755726546756, guid: 3b46d744b983e6849b4dcbd93ffc82ac, type: 3}
   bombSize: 6
   bulletForce: 10
   isDead: 0

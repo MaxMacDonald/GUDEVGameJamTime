@@ -1815,10 +1815,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
       propertyPath: spawnEvents.Array.data[0].count
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
       propertyPath: spawnEvents.Array.data[1].count
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.data[2].count
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
@@ -1826,9 +1830,29 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.data[3].count
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.data[4].count
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.data[5].count
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.data[6].count
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
       propertyPath: spawnEvents.Array.data[38].count
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.data[0].enemyPrefab
+      value: 
+      objectReference: {fileID: 3898697755726546756, guid: 3b46d744b983e6849b4dcbd93ffc82ac, type: 3}
     - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
       propertyPath: spawnEvents.Array.data[38].enemyPrefab
       value: 

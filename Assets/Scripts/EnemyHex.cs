@@ -18,6 +18,9 @@ public class EnemyHex : MonoBehaviour, IEnemy
     private bool insideArena = false;
     public bool isDead = false;
 
+    private float arenaTriggerCooldown = 0f;
+    private const float ARENA_TRIGGER_COOLDOWN_DURATION = 0.3f;
+
     public float Health { get => health; set => health = value; }
     public bool IsDead { get => isDead; set => isDead = value; }
     public float MoveSpeed { get => moveSpeed; set => moveSpeed = value; }
@@ -38,6 +41,9 @@ public class EnemyHex : MonoBehaviour, IEnemy
         if (player == null) return;
 
         MoveTowardsPlayer();
+
+        if (arenaTriggerCooldown > 0f)
+            arenaTriggerCooldown -= Time.deltaTime;
 
         if (!insideArena) return;
 
@@ -91,8 +97,14 @@ public class EnemyHex : MonoBehaviour, IEnemy
             insideArena = true;
             EllipseBorder border = FindFirstObjectByType<EllipseBorder>();
             if (border != null)
+            {
+                if (arenaTriggerCooldown > 0f) return; // ignore if on cooldown
+
+                arenaTriggerCooldown = ARENA_TRIGGER_COOLDOWN_DURATION;
                 border.Ripple(transform.position, 10f, pushOutward: false);
-            return;
+                return;
+            }
+                
         }
         PlayerController player = collision.gameObject.GetComponent<PlayerController>();
         if (player != null)
@@ -104,7 +116,13 @@ public class EnemyHex : MonoBehaviour, IEnemy
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.CompareTag("ArenaBorder"))
+        {
+            //if (arenaTriggerCooldown > 0f) return; // ignore if on cooldown
+
+            //arenaTriggerCooldown = ARENA_TRIGGER_COOLDOWN_DURATION;
             insideArena = false;
+        }
+            
     }
 
     public void TakeDamage(float damage)
@@ -127,4 +145,6 @@ public class EnemyHex : MonoBehaviour, IEnemy
         VFXManager.Instance.PlayEnemyDeathVFX(transform.position);
         gameObject.SetActive(false);
     }
+
+   
 }

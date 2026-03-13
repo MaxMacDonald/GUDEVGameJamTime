@@ -927,7 +927,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 39.506958, y: -33.459106}
+  m_AnchoredPosition: {x: 39.4, y: -33.57}
   m_SizeDelta: {x: 2278.2817, y: 1253.5624}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &376891759
@@ -1802,6 +1802,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3659548974661109833, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.data[0].time
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.data[0].count
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.data[0].enemyPrefab
+      value: 
+      objectReference: {fileID: 5938037113267574566, guid: 1efe6a50d46ccbf4c99596d27433d239, type: 3}
+    - target: {fileID: 7828378227427781414, guid: 7ffc8e97994ebc1498f7edb6d54eded2, type: 3}
+      propertyPath: spawnEvents.Array.data[0].swarmRadius
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

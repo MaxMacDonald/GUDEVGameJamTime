@@ -195,8 +195,8 @@ MonoBehaviour:
     count: 3
     swarmRadius: 0
   - time: 110
-    enemyPrefab: {fileID: 5938037113267574566, guid: 88df7c6638237db41a1e7c61766b0da1, type: 3}
-    count: 3
+    enemyPrefab: {fileID: 5938037113267574566, guid: 1efe6a50d46ccbf4c99596d27433d239, type: 3}
+    count: 1
     swarmRadius: 0
   nextEventIndex: 0
   elapsedTime: 0

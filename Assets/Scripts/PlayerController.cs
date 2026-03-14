@@ -5,6 +5,35 @@ using MoreMountains.Feedbacks;
 
 public class PlayerController : MonoBehaviour
 {
+    public InputActionAsset InputActions;
+
+    private InputAction moveAction;
+    private InputAction lookAction;
+
+    private InputAction shootAction;
+    private InputAction rewindAction;
+
+    private Vector2 m_moveAmt;
+    private Vector2 m_lookAmt;
+
+    private void OnEnable()
+    {
+        InputActions.FindActionMap("Player").Enable();
+    }
+
+    private void OnDisable()
+    {
+        InputActions.FindActionMap("Player").Disable();
+    }
+
+    private void Awake()
+    {
+        moveAction = InputActions.FindAction("Move");
+        lookAction = InputActions.FindAction("Look");
+        //shootAction = InputActions.FindAction("Shoot");
+        //rewindAction = InputActions.FindAction("Rewind");
+    }
+
     [Header("Movement")]
     public float moveSpeed = 5.0f;
     public Rigidbody2D rb;
@@ -57,17 +86,36 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         if (isDead) return;
+        m_moveAmt = moveAction.ReadValue<Vector2>();
+        m_lookAmt = lookAction.ReadValue<Vector2>();
 
-        Vector2 input = new Vector2(
-            Keyboard.current.dKey.isPressed ? 1 : Keyboard.current.aKey.isPressed ? -1 : 0,
-            Keyboard.current.wKey.isPressed ? 1 : Keyboard.current.sKey.isPressed ? -1 : 0
-        );
-        moveDirection = input.normalized;
-        mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
-
-        if (Mouse.current.leftButton.isPressed && !isRewinding && !isInDeathWindow)
+        Debug.Log($"Move Input: {m_moveAmt}, Look Input: {m_lookAmt}");
+  
+        if(GameManager.Instance.controlMode == GameManager.ControlMode.Touch) // Mobile controls
         {
-            weapon.Fire();
+            //Debug.Log("This is mobile controls");
+            moveDirection = m_moveAmt;
+            if (m_lookAmt.magnitude > 0.3f && !isRewinding && !isInDeathWindow)
+            {
+                weapon.Fire();
+            }
+
+        }
+        else // PC controls
+        {
+            Debug.Log("This is PC controls");
+            Vector2 input = new Vector2(
+                Keyboard.current.dKey.isPressed ? 1 : Keyboard.current.aKey.isPressed ? -1 : 0,
+                Keyboard.current.wKey.isPressed ? 1 : Keyboard.current.sKey.isPressed ? -1 : 0
+             );
+            moveDirection = input.normalized;
+            mousePosition = Camera.main.ScreenToWorldPoint(Mouse.current.position.ReadValue());
+
+            if (Mouse.current.leftButton.isPressed && !isRewinding && !isInDeathWindow)
+            {
+                Debug.Log("Player shoots!");
+                weapon.Fire();
+            }
         }
 
         HandleRewind();
@@ -218,10 +266,25 @@ public class PlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         if (isRewinding || isDead) return;
-        rb.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
-        Vector2 aimDirection = mousePosition - rb.position;
-        float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
-        rb.rotation = aimAngle;
+        
+        if(GameManager.Instance.controlMode == GameManager.ControlMode.Touch)// Mobile controls
+        {
+            rb.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+            Vector2 aimDirection = m_lookAmt;
+            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+            rb.rotation = aimAngle;
+
+        }
+        else // PC controls
+        {
+            rb.linearVelocity = new Vector2(moveDirection.x * moveSpeed, moveDirection.y * moveSpeed);
+            Vector2 aimDirection = mousePosition - rb.position;
+            float aimAngle = Mathf.Atan2(aimDirection.y, aimDirection.x) * Mathf.Rad2Deg - 90f;
+            rb.rotation = aimAngle;
+
+        }
+
+
         ConstrainToArena();
     }
 }

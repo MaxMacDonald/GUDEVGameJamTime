@@ -5,6 +5,26 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
+    public enum ControlMode
+    {
+        KeyboardMouse,
+        Touch
+    }
+    public ControlMode controlMode = ControlMode.KeyboardMouse;
+
+    public GameObject MobileControlUI;
+
+    public void ControlModePC()
+    {
+        controlMode = ControlMode.KeyboardMouse;
+    }
+    public void ControlModeMobile()
+    {
+        controlMode = ControlMode.Touch;
+        MobileControlUI.SetActive(true);
+    }
+
+
     private void Awake()
     {
         Instance = this;

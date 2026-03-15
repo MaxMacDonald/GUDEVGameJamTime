@@ -68,8 +68,10 @@ public class PlayerController : MonoBehaviour
     private float snapshotRadiusY;
 
     public MMF_Player playerGetHitFeedbacks;
+    public GameObject PlayerDeathEffect;
 
     public EllipseBorder ellipseBorder;
+
 
     private void Start()
     {
@@ -154,6 +156,8 @@ public class PlayerController : MonoBehaviour
                 rewindValue = 0f;
                 isRewinding = false;
                 SFXManager.Instance.StopRewindFeedbacks();
+                //Reset Player Explode VFX
+                PlayerDeathEffect.SetActive(false);
 
                 // If they stop rewinding during death window, restore normal speed
                 if (isInDeathWindow)
@@ -194,6 +198,8 @@ public class PlayerController : MonoBehaviour
 
         // TODO: Play hit animation here
         // if (playerAnimator != null) playerAnimator.SetTrigger("Hit");
+        PlayerDeathEffect.SetActive(true);
+
 
         // Wait for rewind window in real time (unscaled)
         float elapsed = 0f;
